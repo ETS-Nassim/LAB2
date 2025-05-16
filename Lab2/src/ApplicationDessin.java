@@ -6,13 +6,19 @@ public class ApplicationDessin {
     public static void main(String[] args) {
         ElementDessin dessin3Niveaux = creerTopo3Niveaux();
         ElementDessin dessin2Niveaux = creerTopo2Niveaux();
-        ElementDessin dessin1Forme    = new Cercle("CercleUnique");
+
+
+        DessinComposite racineUnique = new DessinComposite("Racine");
+        racineUnique.ajouter(new Cercle("CercleUnique"));
+        ElementDessin dessin1Forme = racineUnique;
 
         Map<Integer, ElementDessin> map = Map.of(
                 1, dessin3Niveaux,
                 2, dessin2Niveaux,
                 3, dessin1Forme
         );
+
+
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Entrez le dessin à tester :\n"
